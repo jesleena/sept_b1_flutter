@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sept1_batch/gridview/gridview1.dart';
 import 'package:sept1_batch/list/list_listgenerate.dart';
