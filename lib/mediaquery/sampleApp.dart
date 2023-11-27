@@ -44,6 +44,7 @@ class _MediaQueryExampleState extends State<MediaQueryExample> {
               ),
             ),
           ),
+          _text('Size: ${media.size}'),
           _text('Height: ${media.size.height}'),
           _text('Width: ${media.size.width}'),
           _text('Device Pixel Ratio: ${media.devicePixelRatio}'),
