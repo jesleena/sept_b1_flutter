@@ -8,16 +8,16 @@ List<Map<String,dynamic>> products=[
   },
   {
     "id":2,
-    "name":"product2",
+    "name":"laptop",
     "price":600,
     "description":"product 2 description",
-    "image":"assets/images/pic2"
+    "image":"assets/images/laptop.png"
   },
   {
     "id":3,
-    "name":"product3",
+    "name":"phone",
     "price":1500,
     "description":"product 3 description",
-    "image":"assets/images/pic3"
+    "image":"assets/images/phone.png"
   }
 ];

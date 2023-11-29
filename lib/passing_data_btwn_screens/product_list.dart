@@ -22,12 +22,12 @@ class ProductList extends StatelessWidget {
       body: ListView(
         // e single map
         children: products.map((e) => ListTile(leading: Image.asset(e["image"]),
-        onTap: ()=> gotodetails(context,e["id"]),)).toList()
+        onTap: ()=>  Navigator.pushNamed(context,"details",arguments: e["id"]),)).toList()
       ),
     );
   }
 
-  void gotodetails(BuildContext context, id) {
-    Navigator.pushNamed(context,"details",arguments: id);
-  }
+  // void gotodetails(BuildContext context, id) {
+  //   Navigator.pushNamed(context,"details",arguments: id);
+  // }
 }

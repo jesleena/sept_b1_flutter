@@ -30,10 +30,10 @@ class Media extends StatelessWidget {
       body: Center(
         child: Container(
           color: Colors.yellow,
-          // height: 600,
-          // width: 400,
-          height: height * 0.8, //half of the height size
-          width: width, //half of the width size
+          height: 300,
+          width: 400,
+          // height: height * 0.8, //half of the height size
+          // width: width, //half of the width size
         ),
       ),
     );
