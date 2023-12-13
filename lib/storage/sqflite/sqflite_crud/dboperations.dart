@@ -24,11 +24,21 @@ class SQLHelper{
     final db = await SQLHelper.OpenDb(); // to open database
     final data = {"name": cname, "phone": cphone};
     db.insert('mycontacts', data);
-
   }
 
   static Future<List<Map<String,dynamic>>>readData() async{
     final db = await SQLHelper.OpenDb();
-    return db.query('mycontacts',orderBy: 'name');//read all data from db by id
+    return db.query('mycontacts',orderBy: 'name');//read all data from db by name
+  }
+
+  static Future<void>updateContact(int? id, String uname, String uphone) async{
+    final db = await SQLHelper.OpenDb();
+    final udata = {"name": uname, "phone": uphone};
+    await db.update('mycontacts', udata,where: 'id=?',whereArgs: [id]);
+  }
+
+  static Future<void> deleteContact(int? id)async {
+    final db = await SQLHelper.OpenDb();
+    await db.delete('mycontacts',where: 'id=?' ,whereArgs: [id]);
   }
 }
