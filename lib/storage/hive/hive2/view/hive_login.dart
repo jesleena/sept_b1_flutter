@@ -72,6 +72,7 @@ class HiveLogin extends StatelessWidget {
           userFound = false;
         }
       });
+
       if (userFound == true) {
         Get.snackbar("Success", "Login success", colorText: Colors.green);
         Get.to(HiveHome());
