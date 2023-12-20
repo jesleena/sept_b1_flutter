@@ -1,17 +1,10 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:sept1_batch/storage/hive/hive2/model/user_model.dart';
 import 'package:sept1_batch/storage/hive/hive2/view/hive_login.dart';
 import '../database/hivedb.dart';
-void main()async{
-  WidgetsFlutterBinding.ensureInitialized();
-  Hive.initFlutter();
-  Hive.registerAdapter(UserAdapter());
-  await Hive.openBox<User>('userData');
-  runApp(GetMaterialApp(home: Hive_reg(),));
-}
+
 class Hive_reg extends StatelessWidget {
   final emil_ctrl = TextEditingController();
   final pwd_ctrl = TextEditingController();
@@ -19,24 +12,28 @@ class Hive_reg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          TextField(
-            controller: emil_ctrl,
-            decoration: InputDecoration(hintText: "email"),
-          ),
-          TextField(
-            controller: pwd_ctrl,
-            decoration: InputDecoration(hintText: "password"),
-          ),
-          ElevatedButton(onPressed: () async {
-            final regUserList=await HiveDb.instance.getUser();
-            validate_registration(regUserList);
-          },
+      appBar: AppBar(title: Text("signup"),),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: emil_ctrl,
+              decoration: InputDecoration(hintText: "email"),
+            ),
+            TextField(
+              controller: pwd_ctrl,
+              decoration: InputDecoration(hintText: "password"),
+            ),
+            ElevatedButton(onPressed: () async {
+              final regUserList=await HiveDb.instance.getUser();
+              validate_registration(regUserList);
+            },
 
 
-              child: Text("Register Here"))
-        ],
+                child: Text("Register Here"))
+          ],
+        ),
       ),
     );
   }
