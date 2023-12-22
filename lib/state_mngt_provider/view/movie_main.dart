@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sept1_batch/state_mngt_provider/view/movie_wishlist.dart';
 import '../provider/movie_provider.dart';
 
 void main() {
@@ -24,7 +25,9 @@ class MovieMain extends StatelessWidget {
       body: Column(
         children: [
           ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>WishList()));
+              },
               icon: Icon(Icons.favorite),
               label: Text("Wishlist ${wishlistt.length}")),
           Expanded(
@@ -33,6 +36,7 @@ class MovieMain extends StatelessWidget {
                   itemBuilder: (context, index) {
                     //final current_movie=moviess[index];
                     return Card(
+                      color: Colors.purple[200],
                       child: ListTile(
                         title: Text(moviess[index].title),
                         subtitle: Text(moviess[index].time),
@@ -52,7 +56,7 @@ class MovieMain extends StatelessWidget {
                               Icons.favorite,
                               color: wishlistt.contains(moviess[index])
                                   ? Colors.red
-                                  : Colors.grey,
+                                  : Colors.black38,
                             )),
                       ),
                     );
