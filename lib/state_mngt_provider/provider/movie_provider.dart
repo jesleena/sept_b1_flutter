@@ -9,8 +9,11 @@ final List<Movie> movielist = List.generate(
 
 class MovieProvider extends ChangeNotifier{
 
- final List<Movie> movies= movielist;
- final List<Movie> wishlist=[];
+ final List<Movie> _movies= movielist;
+ List<Movie> get movies => _movies;
+
+ final List<Movie> _wishlist=[];
+ List<Movie> get wishlist=>_wishlist;
 
   void add_wishlist(Movie movies) {
    wishlist.add(movies);
